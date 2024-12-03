@@ -11,8 +11,7 @@ public class LambdaExpression1 {
     public static void main(String[] args) {
         SayHello1 sayHello = () -> {
             System.out.println("Hello Lambda");
-        };
-        
+        }; 
         sayHello.sayHello();
     }
 }
