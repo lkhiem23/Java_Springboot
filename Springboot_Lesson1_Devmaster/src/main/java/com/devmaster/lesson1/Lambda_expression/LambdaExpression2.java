@@ -1,7 +1,8 @@
 package com.devmaster.lesson1.Lambda_expression;
 
 // Lambda sử dụng 1 tham số duy nhất
-@FunctionalInterface
+
+@FunctionalInterface // Tạo Interface
 interface SayHello2{
     public void sayHello(String name);
 }
