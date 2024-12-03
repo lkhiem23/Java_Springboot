@@ -12,6 +12,7 @@ public class LambdaExpression1 {
         SayHello1 sayHello = () -> {
             System.out.println("Hello Lambda");
         };
+        
         sayHello.sayHello();
     }
 }
