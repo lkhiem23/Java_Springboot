@@ -1,0 +1,23 @@
+<!doctype html>
+<html lang="en" xmlns:th="https://www.thymeleaf.org">
+<head th:replace="fragments/_layout::head(${title})">
+    <title>Home</title>
+</head>
+
+<body>
+<header th:replace="fragments/_layout::_header" ></header>
+
+<!-- Nội dung chính -->
+<section class="container" style="min-height:268px">
+        <div>
+            <h1>Đây là trang chủ</h1>
+        </div>
+
+<!-- Sử dụng menu trong _layout -->
+        <nav th:insert="fragments/_layout::menu"></nav>
+</section>
+
+<footer th:replace="fragments/_layout::_footer">hahahaha</footer>
+
+</body>
+</html>
