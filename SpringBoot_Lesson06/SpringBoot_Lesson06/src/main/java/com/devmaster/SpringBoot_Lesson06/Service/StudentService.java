@@ -4,20 +4,21 @@ import com.devmaster.SpringBoot_Lesson06.DTO.StudentDTO;
 import com.devmaster.SpringBoot_Lesson06.Entity.Student;
 import com.devmaster.SpringBoot_Lesson06.Respository.StudentRepository;
 import lombok.NoArgsConstructor;
-import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 import java.util.List;
 import java.util.Optional;
 
-@Slf4j
 @Service
 @NoArgsConstructor
 public class StudentService {
+
     @Autowired
     private StudentRepository studentRepository;
-
+    private static final Logger log = LoggerFactory.getLogger(StudentService.class);
     // List All SinhVien
 
     public List<Student> findAll(){
@@ -27,13 +28,17 @@ public class StudentService {
     // Get Object Student
     public Optional<StudentDTO> findById(Long id) {
         Optional<Student> optionalStudent = studentRepository.findById(id);
+
         if (optionalStudent.isPresent()) {
             Student student = optionalStudent.get();
+
             StudentDTO studentDTO = new StudentDTO();
+
             studentDTO.setId(student.getId());
             studentDTO.setName(student.getName());
             studentDTO.setEmail(student.getEmail());
             studentDTO.setAge(student.getAge());
+
             return Optional.of(studentDTO);
         } else {
             log.warn("Không tìm thấy sinh viên với id: " + id);
@@ -59,7 +64,7 @@ public class StudentService {
 
     /*
     * Cập nhật dữ liệu khi sửa
-    */
+    * */
 
     public Boolean update(Long id, StudentDTO studentDTO){
         return studentRepository.findById(id)
@@ -75,7 +80,7 @@ public class StudentService {
 
     /*
      * XÓA
-     */
+     * */
 
     public void delete(Long id){
         studentRepository.deleteById(id);
