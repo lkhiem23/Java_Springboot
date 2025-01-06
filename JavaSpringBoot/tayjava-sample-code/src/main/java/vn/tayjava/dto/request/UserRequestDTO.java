@@ -8,9 +8,8 @@ public class UserRequestDTO implements Serializable {
     private String email;
     private String phone;
 
-    public UserRequestDTO(){
-
-    }
+    public UserRequestDTO(){}
+    
     public UserRequestDTO(String email, String firstName, String lastName, String phone) {
         this.email = email;
         this.firstName = firstName;
