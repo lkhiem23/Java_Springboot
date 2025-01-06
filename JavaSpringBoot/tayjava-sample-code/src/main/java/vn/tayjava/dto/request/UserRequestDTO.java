@@ -11,7 +11,6 @@ public class UserRequestDTO implements Serializable {
     public UserRequestDTO(){
 
     }
-
     public UserRequestDTO(String email, String firstName, String lastName, String phone) {
         this.email = email;
         this.firstName = firstName;
