@@ -61,10 +61,7 @@ public class StudentService {
         }
     }
 
-    /*
-    * Cập nhật dữ liệu khi sửa
-    * */
-
+    // Cập nhật dữ liệu khi sửa
     public Boolean update(Long id, StudentDTO studentDTO){
         return studentRepository.findById(id)
                 .map(student -> {
@@ -77,10 +74,7 @@ public class StudentService {
                 ;
     }
 
-
      // XÓA
-
-
     public void delete(Long id){
         studentRepository.deleteById(id);
     }
