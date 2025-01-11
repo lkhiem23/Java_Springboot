@@ -1,9 +1,6 @@
 package com.devmaster.lesson07.controller;
 
-
-import com.devmaster.lesson07.entity.Category;
 import com.devmaster.lesson07.entity.Product;
-import com.devmaster.lesson07.service.CategoryService;
 import com.devmaster.lesson07.service.ProductService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -17,14 +14,14 @@ public class ProductController {
     private ProductService productService;
 
     @GetMapping
-    public String listCategories(Model model) {
+    public String ListProduct(Model model) {
         model.addAttribute("products", productService.getAllProducts());
         return "product/product_list";
     }
 
     @GetMapping("/create")
     public String showCreateForm(Model model) {
-        model.addAttribute("products", new Category());
+        model.addAttribute("product", new Product());
         return "product/product_form";
     }
 
@@ -35,20 +32,20 @@ public class ProductController {
     }
 
     @PostMapping("/create")
-    public String saveCategory(@ModelAttribute("product") Product product) {
+    public String saveProduct(@ModelAttribute("product") Product product) {
         productService.saveProduct(product);
         return "redirect:/product";
     }
 
     @PostMapping("/create/{id}")
-    public String updateCategory(@PathVariable Long id, @ModelAttribute Product product) {
+    public String updateProduct(@PathVariable Long id, @ModelAttribute Product product) {
         product.setId(id);
         productService.saveProduct(product);
         return "redirect:/product";
     }
 
     @GetMapping("/delete/{id}")
-    public String deleteCategory(@PathVariable Long id) {
+    public String deleteProduct(@PathVariable Long id) {
         productService.deleteProductById(id);
         return "redirect:/product";
     }
