@@ -1,5 +1,7 @@
 package vn.tayjava.controller;
 
+import jakarta.validation.Valid;
+import jakarta.validation.constraints.Min;
 import org.springframework.web.bind.annotation.*;
 import vn.tayjava.dto.request.UserRequestDTO;
 
@@ -11,13 +13,13 @@ public class UserController {
 
     // Create User
     @PostMapping
-    public String addUser(@RequestBody UserRequestDTO user) {
+    public String addUser(@Valid @RequestBody UserRequestDTO user) {
         return "User added";
     }
 
     //Edit
     @PutMapping("/{userId}")
-    public String updateUser(@PathVariable int userId, @RequestBody UserRequestDTO user) {
+    public String updateUser(@PathVariable int userId, @Valid @RequestBody UserRequestDTO user) {
         System.out.println("Request update userId = " + userId);
         return "User updated";
     }
@@ -30,7 +32,7 @@ public class UserController {
 
     //Delete
     @DeleteMapping("/{userId}")
-    public String deleteUser(@PathVariable int userId) {
+    public String deleteUser(@Min(1) @PathVariable int userId) {
         System.out.println("Request delete user, userId = " + userId);
         return "User deleted";
     }
