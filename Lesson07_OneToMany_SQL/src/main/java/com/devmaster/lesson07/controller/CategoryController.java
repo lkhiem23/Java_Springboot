@@ -19,13 +19,13 @@ public class CategoryController {
         model.addAttribute("categories", categoryService.getAllCategories());
         return "category/category_list";
     }
-
+// Tạo mới
     @GetMapping("/create")
     public String showCreateForm(Model model) {
         model.addAttribute("categories", new Category());
         return "category/category_form";
     }
-
+// Sửa
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable("id") Long id, Model model) {
         model.addAttribute("category",categoryService.getCategoryById(id).orElse(null));
@@ -37,14 +37,14 @@ public class CategoryController {
         categoryService.saveCategory(category);
         return "redirect:/category";
     }
-
+// Update
     @PostMapping("/create/{id}")
     public String updateCategory(@PathVariable Long id, @ModelAttribute Category category) {
         category.setId(id);
         categoryService.saveCategory(category);
         return "redirect:/category";
     }
-
+// Delete
     @GetMapping("/delete/{id}")
     public String deleteCategory(@PathVariable Long id) {
         categoryService.deleteCategoryById(id);
