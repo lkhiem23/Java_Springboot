@@ -43,7 +43,7 @@ public class ProductController {
         productService.saveProduct(product);
         return "redirect:/product";
     }
-
+// Delete
     @GetMapping("/delete/{id}")
     public String deleteProduct(@PathVariable Long id) {
         productService.deleteProductById(id);
