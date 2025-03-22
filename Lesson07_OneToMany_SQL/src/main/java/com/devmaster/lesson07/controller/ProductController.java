@@ -18,13 +18,13 @@ public class ProductController {
         model.addAttribute("products", productService.getAllProducts());
         return "product/product_list";
     }
-
+    // CREATE
     @GetMapping("/create")
     public String showCreateForm(Model model) {
         model.addAttribute("product", new Product());
         return "product/product_form";
     }
-
+    // SỬA
     @GetMapping("/edit/{id}")
     public String showEditForm(@PathVariable("id") Long id, Model model) {
         model.addAttribute("product",productService.getProductById(id).orElse(null));
