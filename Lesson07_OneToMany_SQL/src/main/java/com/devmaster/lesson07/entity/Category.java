@@ -20,28 +20,4 @@ public class Category {
     Long id;
     String categoryName;
     Boolean categoryStatus;
-
-    public String getCategoryName() {
-        return categoryName;
-    }
-
-    public void setCategoryName(String categoryName) {
-        this.categoryName = categoryName;
-    }
-
-    public Boolean getCategoryStatus() {
-        return categoryStatus;
-    }
-
-    public void setCategoryStatus(Boolean categoryStatus) {
-        this.categoryStatus = categoryStatus;
-    }
-
-    public Long getId() {
-        return id;
-    }
-
-    public void setId(Long id) {
-        this.id = id;
-    }
 }
